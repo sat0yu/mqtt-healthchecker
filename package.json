@@ -1,0 +1,29 @@
+{
+  "name": "mqtt-healthchecker",
+  "version": "1.0.0",
+  "description": "A simple healthchecker through MQTT",
+  "main": "index.js",
+  "bin": {
+    "mqtt-healthchecker": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sat0yu/mqtt-healthchecker.git"
+  },
+  "keywords": [
+    "mqtt",
+    "healthcheck"
+  ],
+  "author": "sat0yu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sat0yu/mqtt-healthchecker/issues"
+  },
+  "homepage": "https://github.com/sat0yu/mqtt-healthchecker#readme",
+  "dependencies": {
+    "mqtt": "^4.1.0"
+  }
+}
