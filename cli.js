@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+const HEALTHCHECK_MQTT_BROKER_URI =
+  process.env.HEALTHCHECK_MQTT_BROKER_URI ||
+  process.env[process.env.HEALTHCHECK_MQTT_BROKER_URI_VARIABLE_NAME];
+const HEALTHCHECK_RES_TOPIC = process.env.HEALTHCHECK_RES_TOPIC;
+const HEALTHCHECK_REQ_TOPIC = process.env.HEALTHCHECK_REQ_TOPIC;
+const HEALTHCHECK_MESSAGE = process.env.HEALTHCHECK_MESSAGE || "";
+const HEALTHCHECK_REGEXP = process.env.HEALTHCHECK_REGEXP;
+const HEALTHCHECK_TIMEOUT = process.env.HEALTHCHECK_TIMEOUT || 2000;
+if (HEALTHCHECK_MQTT_BROKER_URI == null) {
+  throw new Error(
+    "missing: neither HEALTHCHECK_MQTT_BROKER_URI nor HEALTHCHECK_MQTT_BROKER_URI_VARIABLE_NAME"
+  );
+}
+if (HEALTHCHECK_RES_TOPIC == null) {
+  throw new Error("missing: HEALTHCHECK_RES_TOPIC");
+}
+if (HEALTHCHECK_REQ_TOPIC == null) {
+  throw new Error("missing: HEALTHCHECK_REQ_TOPIC");
+}
+require("./index").probe({
+  mqttBrokerUri: HEALTHCHECK_MQTT_BROKER_URI,
+  resTopic: HEALTHCHECK_RES_TOPIC,
+  reqTopic: HEALTHCHECK_REQ_TOPIC,
+  message: HEALTHCHECK_MESSAGE,
+  regexp: HEALTHCHECK_REGEXP,
+  timeout: HEALTHCHECK_TIMEOUT,
+})

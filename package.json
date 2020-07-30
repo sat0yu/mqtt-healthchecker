@@ -4,7 +4,7 @@
   "description": "A simple healthchecker through MQTT",
   "main": "index.js",
   "bin": {
-    "mqtt-healthchecker": "./index.js"
+    "mqtt-healthchecker": "./cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
