@@ -1,6 +1,6 @@
 {
   "name": "mqtt-healthchecker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple healthchecker through MQTT",
   "main": "index.js",
   "bin": {
