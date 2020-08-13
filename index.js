@@ -12,7 +12,7 @@ exports.probe = ({
   regexp,
   timeout,
 }) => {
-  const client = MQTT.connect(mqttBrokerUri);
+  const client = MQTT.connect(mqttBrokerUri, { clientId: `mqtt-healthchecker_${Math.random().toString(16).substr(2, 8)}` });
   client.on("connect", () => {
     return console.log(
       "established a connection: " + mqttBrokerUri
